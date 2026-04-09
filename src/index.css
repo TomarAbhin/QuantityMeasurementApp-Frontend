@@ -1,35 +1,41 @@
-/* ========================================
-   QMA Frontend — Design System
-   Light Cyan Glassmorphic Theme
-   ======================================== */
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
 /* ── CSS Variables ─────────────────────── */
 :root {
   /* Base Colors (Sky-Mild) */
-  --bg-base: #f0f9ff; /* Very Light Sky Blue */
+  --bg-base: #f0f9ff;
+  /* Very Light Sky Blue */
   --bg-surface: #ffffff;
   --bg-overlay: rgba(240, 249, 255, 0.96);
   --bg-card: #ffffff;
-  --bg-card-hover: #e0f2fe; /* Light Sky Blue hover */
+  --bg-card-hover: #e0f2fe;
+  /* Light Sky Blue hover */
 
   /* Text - Deep Slate/Navy for crispness */
-  --text-primary: #0c4a6e; /* Deep Sky Blue Text */
+  --text-primary: #0c4a6e;
+  /* Deep Sky Blue Text */
   --text-secondary: #334155;
   --text-muted: #64748b;
-  --text-accent: #0ea5e9; /* Sky Blue */
+  --text-accent: #0ea5e9;
+  /* Sky Blue */
 
   /* Accent Colors (Cool & Refreshing) */
-  --accent-primary: #0ea5e9; /* Sky 500 */
-  --accent-secondary: #6366f1; /* Indigo */
-  --accent-success: #10b981; /* Emerald */
-  --accent-warning: #f59e0b; /* Amber */
-  --accent-danger: #ef4444; /* Rose */
-  --accent-info: #0284c7; /* Sky 600 */
+  --accent-primary: #0ea5e9;
+  /* Sky 500 */
+  --accent-secondary: #6366f1;
+  /* Indigo */
+  --accent-success: #10b981;
+  /* Emerald */
+  --accent-warning: #f59e0b;
+  /* Amber */
+  --accent-danger: #ef4444;
+  /* Rose */
+  --accent-info: #0284c7;
+  /* Sky 600 */
 
   /* Navbar Contrast Colors */
-  --navbar-bg: linear-gradient(135deg, #1e293b, #0f172a); /* Deep Navy/Indigo */
+  --navbar-bg: linear-gradient(135deg, #1e293b, #0f172a);
+  /* Deep Navy/Indigo */
   --navbar-text: #f8fafc;
   --navbar-link-hover: rgba(255, 255, 255, 0.1);
 
@@ -41,7 +47,8 @@
 
   /* Soft Shadows & Borders */
   --glass-bg: rgba(255, 255, 255, 0.85);
-  --glass-border: rgba(186, 230, 253, 0.5); /* Sky 200/300 tint */
+  --glass-border: rgba(186, 230, 253, 0.5);
+  /* Sky 200/300 tint */
   --glass-shadow: 0 10px 40px -10px rgba(14, 165, 233, 0.15);
 
   /* Sizing */
@@ -100,13 +107,16 @@ body {
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
   background: rgba(108, 99, 255, 0.3);
   border-radius: 3px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(108, 99, 255, 0.5);
 }
@@ -141,7 +151,9 @@ body {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* ══════════════════════════════════════════
@@ -296,7 +308,7 @@ body {
   position: relative;
   overflow: hidden;
   background-color: #ebf8ff;
-  background-image: 
+  background-image:
     radial-gradient(at 0% 0%, rgba(14, 165, 233, 0.15) 0px, transparent 50%),
     radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.15) 0px, transparent 50%);
 }
@@ -361,20 +373,47 @@ body {
 }
 
 @keyframes float1 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -30px) scale(1.1); }
-  66% { transform: translate(-20px, 20px) scale(0.9); }
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
 }
 
 @keyframes float2 {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  50% { transform: translate(40px, -40px) rotate(180deg); }
+
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(40px, -40px) rotate(180deg);
+  }
 }
 
 @keyframes float3 {
-  0%, 100% { transform: translate(0, 0); }
-  25% { transform: translate(20px, -30px); }
-  75% { transform: translate(-30px, 20px); }
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(20px, -30px);
+  }
+
+  75% {
+    transform: translate(-30px, 20px);
+  }
 }
 
 .auth-card {
@@ -385,7 +424,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: var(--radius-xl);
   padding: 2.5rem;
-  box-shadow: 
+  box-shadow:
     0 10px 40px rgba(0, 0, 0, 0.04),
     0 0 0 1px rgba(0, 0, 0, 0.01);
   position: relative;
@@ -477,7 +516,7 @@ body {
   box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.1);
 }
 
-.input-group input:focus + .input-icon,
+.input-group input:focus+.input-icon,
 .input-group:focus-within .input-icon {
   color: var(--accent-primary);
 }
@@ -509,7 +548,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
   opacity: 0;
   transition: opacity var(--transition-normal);
 }
@@ -870,6 +909,7 @@ input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
 input[type='number'] {
   -moz-appearance: textfield;
   appearance: textfield;
