@@ -146,9 +146,9 @@ const Signup = () => {
           <span style={{ fontSize: '0.85rem' }}>OR</span>
         </div>
 
-        <a 
-          href="http://localhost:8080/oauth2/authorization/google" 
-          className="auth-btn secondary" 
+        <a
+          href={`${import.meta.env.VITE_API_BASE_URL}/oauth2/authorization/google`}
+          className="auth-btn secondary"
           style={{ textDecoration: 'none', display: 'flex', marginBottom: '1rem' }}
         >
           <FcGoogle size={20} />
