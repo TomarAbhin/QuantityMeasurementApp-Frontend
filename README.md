@@ -1,16 +1,107 @@
-# React + Vite
+# Quantity Measurement App — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Built with **React + Vite + Modern CSS**, this interface connects to the Spring Boot backend for high-precision unit conversion and measurement operations.
 
-Currently, two official plugins are available:
+**Supported Quantities:** Length · Temperature · Volume · Weight  
+**Authentication:** JWT (Register/Login) · Google OAuth2
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Repository Branch Structure
+| Branch | Description |
+| :--- | :--- |
+| **main** | React + Vite frontend (deployed to Vercel) |
 
-## React Compiler
+## Table of Contents
+- [Prerequisites](#prerequisites)
+- [Getting Started](#getting-started)
+- [Connecting to the Backend](#connecting-to-the-backend)
+- [Using the App](#using-the-app)
+- [Google OAuth2 Setup](#google-oauth2-setup)
+- [Production Build](#production-build)
+- [Troubleshooting](#troubleshooting)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Prerequisites
+| Tool | Version |
+| :--- | :--- |
+| **Node.js** | 18 or above |
+| **npm** | 9+ |
 
-## Expanding the ESLint configuration
+> [!NOTE]
+> This is a frontend-only repository. The Spring Boot backend must be running separately for API calls and authentication to work.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Getting Started
+
+### Step 1 — Clone the Repository
+```bash
+git clone <your-repo-url>
+cd QMA-Frontend
+```
+
+### Step 2 — Install Dependencies
+```bash
+npm install
+```
+
+### Step 3 — Start the Development Server
+```bash
+npm run dev
+```
+Open your browser at → **http://localhost:3000**
+
+## Connecting to the Backend
+This frontend is designed to work with the **Quantity Measurement App Spring Boot backend**.
+
+### Local Configuration
+Ensure the backend is running at **http://localhost:8080** before using the app. The API connection is managed via `.env.development`:
+```env
+VITE_API_BASE_URL=http://localhost:8080
+```
+
+### Production Configuration
+The production app connects to the Railway deployment:
+```env
+VITE_API_BASE_URL=https://quantitymeasurementapp-production-f900.up.railway.app
+```
+
+## Using the App
+
+### Register / Login
+1. Open **http://localhost:3000** (or your Vercel URL).
+2. Click **"Sign Up"** → enter your email and password → register.
+3. Or sign in with your Google account using the **"Continue with Google"** button.
+4. You will be redirected to the dashboard automatically.
+
+### Measurement Operations
+- **Select Category**: Length, Weight, Temperature, or Volume.
+- **Enter Value**: Input the numerical value in the quantity field.
+- **Select Units**: Choose "From" and "To" units from the dropdowns.
+- **Choose Operation**: Switch between Convert, Compare, or Arithmetic (Add/Subtract/Divide).
+- **Click Calculate**: The result appears instantly with a detailed breakdown.
+- **History**: View your previous calculations in the History tab.
+
+## Google OAuth2 Setup
+To enable the Google login button:
+1. Go to the [Google Cloud Console](https://console.cloud.google.com).
+2. Create a project → **APIs & Services** → **Credentials**.
+3. Create an **OAuth 2.0 Client ID**.
+4. Set Application type to **Web application**.
+5. Add the following **Authorized Redirect URIs**:
+   - `http://localhost:8080/login/oauth2/code/google` (Dev)
+   - `https://quantitymeasurementapp-production-f900.up.railway.app/login/oauth2/code/google` (Prod)
+6. Add your Vercel URL to the **Authorized JavaScript Origins**.
+
+## Production Build
+```bash
+npm run build
+```
+Output is generated in the `dist/` folder. This project is configured for deployment on **Vercel** via `vercel.json`.
+
+## Troubleshooting
+| Problem | Fix |
+| :--- | :--- |
+| **Blank page on load** | Run `npm install` and restart with `npm run dev`. |
+| **CORS error** | Ensure the backend URL is added to `ALLOWED_ORIGINS` in Railway. |
+| **401 Unauthorized** | Token has expired — log out and log in again. |
+| **Google login fails** | Verify Redirect URIs match perfectly in Google Console. |
+| **Backend not found** | Verify `VITE_API_BASE_URL` is correct in your Vercel Environment Variables. |
+
+**Technology Stack:** React · Vite · Modern CSS · Framer Motion · JWT · Google OAuth2
